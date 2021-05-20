@@ -12,6 +12,7 @@ import useTickets from "../../hooks/useTickets";
 import { i18n } from "../../translate/i18n";
 import { ListSubheader } from "@material-ui/core";
 import { AuthContext } from "../../context/Auth/AuthContext";
+import { Can } from "../Can";
 
 const useStyles = makeStyles(theme => ({
 	ticketsListWrapper: {
@@ -280,14 +281,22 @@ const TicketsList = ({ status, searchParam, showAll, selectedQueueIds }) => {
 						</ListSubheader>
 					)}
 					{status === "pending" && (
-						<ListSubheader className={classes.ticketsListHeader}>
-							<div>
-								{i18n.t("ticketsList.pendingHeader")}
-								<span className={classes.ticketsCount}>
-									{ticketsList.length}
-								</span>
-							</div>
-						</ListSubheader>
+						<Can 
+							role={user.profile}
+							perform="drawer-admin-items:view"
+							yes={() => (
+								<>
+									<ListSubheader className={classes.ticketsListHeader}>
+										<div>
+											{i18n.t("ticketsList.pendingHeader")}
+											<span className={classes.ticketsCount}>
+												{ticketsList.length}
+											</span>
+										</div>
+									</ListSubheader>
+								</>
+							)}
+						/>
 					)}
 					{ticketsList.length === 0 && !loading ? (
 						<div className={classes.noTicketsDiv}>
