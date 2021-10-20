@@ -70,27 +70,35 @@ const MainListItems = (props) => {
     return () => clearTimeout(delayDebounceFn);
   }, [whatsApps]);
 
-  return (
-    <div onClick={drawerClose}>
-      <ListItemLink
-        to="/"
-        primary="Dashboard"
-        icon={<DashboardOutlinedIcon />}
-      />
-      <ListItemLink
-        to="/connections"
-        primary={i18n.t("mainDrawer.listItems.connections")}
-        icon={
-          <Badge badgeContent={connectionWarning ? "!" : 0} color="error">
-            <SyncAltIcon />
-          </Badge>
-        }
-      />
-      <ListItemLink
-        to="/tickets"
-        primary={i18n.t("mainDrawer.listItems.tickets")}
-        icon={<WhatsAppIcon />}
-      />
+	return (
+		<div onClick={drawerClose}>
+			<ListItemLink
+				to="/"
+				primary="Dashboard"
+				icon={<DashboardOutlinedIcon />}
+			/>
+			<Can 
+				role={user.profile}
+				perform="drawer-admin-items:view"
+				yes={() => (
+					<>
+						<ListItemLink
+							to="/connections"
+							primary={i18n.t("mainDrawer.listItems.connections")}
+							icon={
+								<Badge badgeContent={connectionWarning ? "!" : 0} color="error">
+									<SyncAltIcon />
+								</Badge>
+							}
+						/>
+					</>
+				)}
+			/>
+			<ListItemLink
+				to="/tickets"
+				primary={i18n.t("mainDrawer.listItems.tickets")}
+				icon={<WhatsAppIcon />}
+			/>
 
       <ListItemLink
         to="/contacts"
