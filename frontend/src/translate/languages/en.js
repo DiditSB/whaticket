@@ -107,6 +107,7 @@ const messages = {
         form: {
           name: "Name",
           default: "Default",
+          farewellMessage: "Farewell Message"
         },
         buttons: {
           okAdd: "Add",
@@ -382,6 +383,7 @@ const messages = {
         placeholderOpen: "Type a message or press ''/'' to use the registered quick responses",
         placeholderClosed: "Reopen or accept this ticket to send a message.",
         signMessage: "Sign",
+        chat: "Chat"
       },
       contactDrawer: {
         header: "Contact details",
