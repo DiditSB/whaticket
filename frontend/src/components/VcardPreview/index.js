@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import toastError from "../../errors/toastError";
 import api from "../../services/api";
+import { i18n } from "../../translate/i18n";
 
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
@@ -77,7 +78,7 @@ const VcardPreview = ({ contact, numbers }) => {
 							color="primary"
 							onClick={handleNewChat}
 							disabled={!selectedContact.number}
-						>Conversar</Button>
+						>{i18n.t("messagesInput.chat")}</Button>
 					</Grid>
 				</Grid>
 			</div>
