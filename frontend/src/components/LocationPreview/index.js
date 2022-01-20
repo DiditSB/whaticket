@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import toastError from "../../errors/toastError";
+import { i18n } from "../../translate/i18n";
 
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -41,7 +42,7 @@ const LocationPreview = ({ image, link, description }) => {
 							color="primary"
 							onClick={handleLocation}
 							disabled={!link}
-						>Visualizar</Button>
+						>{i18n.t("messagesInput.view")}</Button>
 					</div>
 				</div>
 			</div>
