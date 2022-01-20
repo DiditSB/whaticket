@@ -383,7 +383,8 @@ const messages = {
         placeholderOpen: "Type a message or press ''/'' to use the registered quick responses",
         placeholderClosed: "Reopen or accept this ticket to send a message.",
         signMessage: "Sign",
-        chat: "Chat"
+        chat: "Chat",
+        view: "View"
       },
       contactDrawer: {
         header: "Contact details",
