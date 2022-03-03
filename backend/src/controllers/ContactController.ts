@@ -77,8 +77,8 @@ export const store = async (req: Request, res: Response): Promise<Response> => {
   await CheckIsValidContact(newContact.number);
   const validNumber : any = await CheckContactNumber(newContact.number)
   
-  //const profilePicUrl = await GetProfilePicUrl(validNumber);
-  const profilePicUrl = "/static/media/foto.jpg";
+  const profilePicUrl = await GetProfilePicUrl(validNumber);
+
   let name = newContact.name
   let number = validNumber
   let email = newContact.email
