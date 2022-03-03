@@ -32,6 +32,21 @@ interface Session extends Client {
 
 const writeFileAsync = promisify(writeFile);
 
+// const verifyContact = async (msgContact: WbotContact): Promise<Contact> => {
+//  const profilePicUrl = await msgContact.getProfilePicUrl();
+//
+//  const contactData = {
+//    name: msgContact.name || msgContact.pushname || msgContact.id.user,
+//   number: msgContact.id.user,
+//   profilePicUrl,
+//    isGroup: msgContact.isGroup
+//  };
+//
+//  const contact = CreateOrUpdateContactService(contactData);
+//
+//  return contact;
+//};
+
 const verifyContact = async (msgContact: WbotContact): Promise<Contact> => {
   const profilePicUrl = await msgContact.getProfilePicUrl();
 
@@ -354,7 +369,6 @@ const handleMessage = async (
             }
           }
         }
-
         // eslint-disable-next-line no-restricted-syntax
         for await (const ob of obj) {
           try {
