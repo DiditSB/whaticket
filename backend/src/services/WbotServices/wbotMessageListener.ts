@@ -219,7 +219,6 @@ const isValidMsg = (msg: WbotMessage): boolean => {
     msg.type === "vcard" ||
     //msg.type === "multi_vcard" ||
     msg.type === "sticker"
-    //msg.type === "location"
   )
     return true;
   return false;
