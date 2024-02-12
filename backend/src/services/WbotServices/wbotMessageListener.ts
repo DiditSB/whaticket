@@ -116,9 +116,11 @@ const verifyMessage = async (
   contact: Contact
 ) => {
 
+  /*
   if (msg.type === 'location')
     msg = prepareLocation(msg);
-
+*/
+  
   const quotedMsg = await verifyQuotedMessage(msg);
   const messageData = {
     id: msg.id.id,
@@ -131,11 +133,12 @@ const verifyMessage = async (
     quotedMsgId: quotedMsg?.id
   };
 
-  await ticket.update({ lastMessage: msg.type === "location" ? msg.location.description ? "Localization - " + msg.location.description.split('\\n')[0] : "Localization" : msg.body });
+  // await ticket.update({ lastMessage: msg.type === "location" ? msg.location.description ? "Localization - " + msg.location.description.split('\\n')[0] : "Localization" : msg.body });
 
   await CreateMessageService({ messageData });
 };
 
+/*
 const prepareLocation = (msg: WbotMessage): WbotMessage => {
   let gmapsUrl = "https://maps.google.com/maps?q=" + msg.location.latitude + "%2C" + msg.location.longitude + "&z=17&hl=pt-BR";
 
@@ -145,6 +148,7 @@ const prepareLocation = (msg: WbotMessage): WbotMessage => {
 
   return msg;
 };
+*/
 
 const verifyQueue = async (
   wbot: Session,
@@ -215,7 +219,7 @@ const isValidMsg = (msg: WbotMessage): boolean => {
     msg.type === "vcard" ||
     //msg.type === "multi_vcard" ||
     msg.type === "sticker" ||
-    msg.type === "location"
+    //msg.type === "location"
   )
     return true;
   return false;
